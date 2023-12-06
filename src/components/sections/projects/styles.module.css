@@ -1,0 +1,11 @@
+.imgContainer {
+  @apply isolation-auto relative;
+  aspect-ratio: 5 / 6;
+}
+
+@media print {
+  .imgContainer {
+    display: none;
+  }
+
+}

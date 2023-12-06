@@ -1,0 +1,10 @@
+.navSpan {
+  font-weight: theme(fontWeight.medium);
+  border-radius: theme(borderRadius.DEFAULT);
+  height: theme(height.full);
+}
+
+.navLink {
+  @apply flex items-center justify-start lg:justify-center uppercase w-full px-3 py-2 rounded hover:bg-gray-900 hover:text-white focus:outline-none;
+  
+}
