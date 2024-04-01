@@ -3,22 +3,22 @@
 }
 
 .city {
-  @apply mt-px ml-2;
+  @apply ml-2 mt-px;
   grid-area: city;
 }
 
 .company {
-  @apply text-3xl mt-4;
+  @apply mt-4 text-3xl;
   grid-area: company;
 }
 
 .dates {
-  @apply font-semibold text-sky-900 dark:text-sky-300 mt-2;
+  @apply mt-2 font-semibold text-sky-900 dark:text-sky-300;
   grid-area: dates;
 }
 
 .description {
-  @apply text-gray-900 dark:text-white mt-4;
+  @apply mt-4 text-gray-900 dark:text-white;
   grid-area: description;
 }
 
@@ -26,7 +26,7 @@
   .container {
     display: grid;
     grid-template-columns: 1fr max-content;
-    grid-template-areas: 
+    grid-template-areas:
       "company dates"
       "city dates"
       "description dates";

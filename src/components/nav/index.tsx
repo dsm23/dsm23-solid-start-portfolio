@@ -61,21 +61,26 @@ const Nav: Component<Props> = (props) => {
   });
 
   return (
-    <div class={styles.container} use:clickOutside={() => void props.onClose()}>
+    <div
+      class={styles.container}
+      use:clickOutside={() => {
+        props.onClose();
+      }}
+    >
       <A
         href="/#home"
-        class="inline-flex items-center shadow-sm outline-none border-2 border-transparent lg:mr-0 lg:mb-4 lg:rounded-full lg:border-8 lg:border-sky-700 focus:border-yellow-500"
+        class="inline-flex items-center border-2 border-transparent shadow-sm outline-none focus:border-yellow-500 lg:mb-4 lg:mr-0 lg:rounded-full lg:border-8 lg:border-sky-700"
       >
         <img
           src={profilePic()?.image?.url}
-          class="aspect-square w-10 lg:w-48 rounded-full object-cover"
+          class="aspect-square w-10 rounded-full object-cover lg:w-48"
           alt={profilePic()?.image?.description}
         />
 
-        <span class="hidden ml-4 print:inline md:inline lg:hidden text-xl text-white font-bold tracking-wide">
+        <span class="ml-4 hidden text-xl font-bold tracking-wide text-white print:inline md:inline lg:hidden">
           David Murdoch
         </span>
-        <span class="inline ml-4 print:hidden md:hidden text-xl text-white font-bold tracking-wide">
+        <span class="ml-4 inline text-xl font-bold tracking-wide text-white print:hidden md:hidden">
           DSM
         </span>
       </A>
@@ -83,7 +88,7 @@ const Nav: Component<Props> = (props) => {
         <button
           aria-label="Open the navigation menu"
           onClick={props.onToggle}
-          class="p-1 flex items-center justify-center rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white"
+          class="flex items-center justify-center rounded-md p-1 text-gray-400 hover:bg-gray-700 hover:text-white focus:bg-gray-700 focus:text-white focus:outline-none"
           aria-controls="primary-navigation"
           aria-expanded={props.open()}
         >

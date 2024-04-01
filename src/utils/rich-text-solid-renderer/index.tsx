@@ -99,7 +99,7 @@ export interface Options {
  */
 export function documentToSolidComponents(
   richTextDocument: Document,
-  options: Options = {}
+  options: Options = {},
 ): JSX.Element {
   if (!richTextDocument) {
     return null;

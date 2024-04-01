@@ -22,7 +22,7 @@ type Props<E extends ElementType> = PlymorphicProps<E> &
 const defaultElement = "a";
 
 export const Anchor: <E extends ElementType = typeof defaultElement>(
-  props: Props<E>
+  props: Props<E>,
 ) => JSX.Element | null = (props) => {
   const [local, others] = splitProps(props, ["as", "class", "ref"]);
 
@@ -32,7 +32,7 @@ export const Anchor: <E extends ElementType = typeof defaultElement>(
       component={local.as || defaultElement}
       class={cx(
         "-mx-1 px-1 text-sky-900 outline-none hover:underline focus:rounded focus:bg-yellow-500 dark:text-sky-300 print:underline",
-        local.class
+        local.class,
       )}
       ref={local.ref}
     />

@@ -17,14 +17,14 @@ import StyledGoBack from "~/components/styled-go-back";
 type Squares = (null | "X" | "O")[];
 
 const Square: Component<JSX.ButtonHTMLAttributes<HTMLButtonElement>> = (
-  props
+  props,
 ) => {
   const [local, others] = splitProps(props, ["children", "class", "onClick"]);
 
   return (
     <button
       {...others}
-      class={cx("w-full h-20 md:h-40 border", local.class)}
+      class={cx("h-20 w-full border md:h-40", local.class)}
       onClick={local.onClick}
     >
       {local.children}
@@ -42,9 +42,11 @@ const Board: Component<
     <For each={Array.from({ length: 9 }, (_, i) => i)}>
       {(index) => (
         <Square
-          onClick={() => props.onClick(index)}
+          onClick={() => {
+            props.onClick(index);
+          }}
           aria-label={`game board, position: ${index % 3} ${Math.floor(
-            index / 3
+            index / 3,
           )}`}
         >
           {props.squares[index]}
@@ -107,7 +109,9 @@ const Game = () => {
       <div class="w-full">
         <Board
           squares={current()?.squares}
-          onClick={(i: number) => handleClick(i)}
+          onClick={(i: number) => {
+            handleClick(i);
+          }}
         />
       </div>
       <div>
@@ -116,7 +120,11 @@ const Game = () => {
           <For each={history}>
             {(_, move) => (
               <li>
-                <button onClick={() => jumpTo(move())}>
+                <button
+                  onClick={() => {
+                    jumpTo(move());
+                  }}
+                >
                   {move() ? "Go to move #" + move() : "Go to game start"}
                 </button>
               </li>
@@ -150,9 +158,9 @@ function calculateWinner(squares: Squares) {
 
 const NoughtsAndCrosses: Component<{}> = () => {
   return (
-    <Main class="px-6 py-8 w-full">
+    <Main class="w-full px-6 py-8">
       <StyledGoBack class="mb-4" href="/#projects" />
-      <h1 class="text-4xl text-sky-600 tracking-widest uppercase">
+      <h1 class="text-4xl uppercase tracking-widest text-sky-600">
         Noughts and Crosses
       </h1>
 

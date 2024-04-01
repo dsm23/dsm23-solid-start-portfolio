@@ -1,5 +1,5 @@
 .iconWrapper svg {
-  @apply fill-current transition transform duration-300 ease-in-out;
+  @apply transform fill-current transition duration-300 ease-in-out;
   fill: currentColor;
   transition-property: color;
   transition-timing-function: theme(transitionTimingFunction.in-out);
@@ -7,5 +7,5 @@
 }
 
 .iconWrapper path {
-  fill: currentColor
+  fill: currentColor;
 }

@@ -35,7 +35,7 @@ async function fetchGraphQL(query: string, preview = false) {
         }`,
       },
       body: JSON.stringify({ query }),
-    }
+    },
   ).then((response) => response.json());
 }
 
@@ -96,7 +96,7 @@ export const getAllAssetsWithSlug = async () => {
           height
         }
       }
-    }`
+    }`,
   );
 
   return extractAssetEntries(entries);
@@ -115,7 +115,7 @@ export const getAsset = async (assetId) => {
         width
         height
       }
-    }`
+    }`,
   );
 
   return extractAsset(entry);
@@ -134,7 +134,7 @@ export const getSkillBySlug = async (slug: string) => {
           ${POST_GRAPHQL_FIELDS}
         }
       }
-    }`
+    }`,
   );
 
   return extractSkill(entry);
@@ -153,7 +153,7 @@ export const getEducation = async () => {
           endDate
         }
       }
-    }`
+    }`,
   );
 
   return extractEducation(entry);
@@ -167,7 +167,7 @@ export const getInterests = async () => {
           interest
         }
       }
-    }`
+    }`,
   );
 
   return extractInterests(entry);
@@ -186,7 +186,7 @@ export const getProfilePic = async () => {
           }
         }
       }
-    }`
+    }`,
   );
 
   return extractProfilePic(entry);
@@ -243,7 +243,7 @@ export const getHomePageQuery = async () => {
           interest
         }
       }
-    }`
+    }`,
   );
 
   return extractHomePage(entry);

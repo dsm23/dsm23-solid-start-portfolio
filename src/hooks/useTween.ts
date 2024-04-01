@@ -4,7 +4,7 @@ import { easing as timing } from "~/utils";
 
 const useTween = (
   initial: number,
-  { easing = timing.inOutQuad, duration = 250 } = {}
+  { easing = timing.inOutQuad, duration = 250 } = {},
 ): [Accessor<number>, (to: number) => void] => {
   let raf: number | null = null;
   const [state, setState] = createSignal(initial);

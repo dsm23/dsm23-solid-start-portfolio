@@ -1,5 +1,5 @@
 .container {
-  @apply p-3 grid items-center justify-between bg-gradient-to-r from-sky-700 via-sky-800 to-sky-900 w-full top-0 sticky z-10 isolate;
+  @apply sticky top-0 isolate z-10 grid w-full items-center justify-between bg-gradient-to-r from-sky-700 via-sky-800 to-sky-900 p-3;
   grid-template-areas:
     "profile icon"
     "sections sections";
@@ -19,8 +19,7 @@
 
 @media screen(md) {
   .container {
-    grid-template-areas: 
-      "profile sections";
+    grid-template-areas: "profile sections";
   }
 
   .icon {

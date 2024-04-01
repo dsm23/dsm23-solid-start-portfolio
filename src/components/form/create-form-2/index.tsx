@@ -41,7 +41,7 @@ export namespace FormType {
     /** Will set the value of the refered field */
     setValue: <Field extends keyof ValuesType>(
       field: Field,
-      value: ValuesType[Field]
+      value: ValuesType[Field],
     ) => void;
     /** Will set the error message of the refered field */
     setError: (field: keyof ValuesType, error: string) => void;
@@ -80,16 +80,16 @@ export namespace FormType {
 const FormContext = createContext({} as FormType.Context);
 
 export function Form<ValuesType extends object>(
-  props: FormType.Props<ValuesType>
+  props: FormType.Props<ValuesType>,
 ) {
   const { initialValues, validation, ...attrs } = props;
   const touched = Object.keys(initialValues).reduce(
     (t, f) => ({ ...t, [f]: false }),
-    {} as FormType.Touched<ValuesType>
+    {} as FormType.Touched<ValuesType>,
   );
   const errors = Object.keys(initialValues).reduce(
     (e, f) => ({ ...e, [f]: "" }),
-    {} as FormType.Errors<ValuesType>
+    {} as FormType.Errors<ValuesType>,
   );
 
   const required = Object.keys(initialValues).reduce((r, f) => {
@@ -106,7 +106,7 @@ export function Form<ValuesType extends object>(
 
   const setValue: FormType.Context<ValuesType>["setValue"] = (
     field: any,
-    value: any
+    value: any,
   ) => {
     setForm("values", field, value);
   };
@@ -116,7 +116,7 @@ export function Form<ValuesType extends object>(
 
   const setError: FormType.Context<ValuesType>["setError"] = (
     field: any,
-    error: any
+    error: any,
   ) => {
     setForm("errors", field, error);
   };
@@ -138,7 +138,7 @@ export function Form<ValuesType extends object>(
   };
 
   const validateForm = async (
-    form: Store<FormType.Context<ValuesType>>
+    form: Store<FormType.Context<ValuesType>>,
   ): Promise<FormType.Errors<ValuesType>> => {
     if (!validation) return {} as { [Key in keyof ValuesType]: string };
 
@@ -155,7 +155,7 @@ export function Form<ValuesType extends object>(
           .filter((ve) => !!ve.path)
           .reduce(
             (e, ve) => ({ ...e, [ve.path!]: ve.message }),
-            {} as FormType.Errors<ValuesType>
+            {} as FormType.Errors<ValuesType>,
           );
       });
   };
@@ -207,12 +207,12 @@ export function Form<ValuesType extends object>(
     newForm.isSubmitting = true;
     newForm.touched = Object.keys(initialValues).reduce(
       (t, f) => ({ ...t, [f]: true }),
-      {} as any
+      {} as any,
     );
 
     newForm.errors = (await validateForm(newForm)) as any;
     newForm.isValid = !Object.keys(newForm.errors).filter(
-      (field) => !!newForm.errors[field as keyof ValuesType]
+      (field) => !!newForm.errors[field as keyof ValuesType],
     ).length;
 
     setForm((f) => ({ ...f, ...newForm }));
@@ -239,14 +239,14 @@ export function Form<ValuesType extends object>(
  * Custom hook that will expose the Form API and some Solid.JS Accessors to some field states.
  */
 export function useField<ValuesType extends object = any>(
-  name: keyof ValuesType
+  name: keyof ValuesType,
 ): FormType.FieldHook<ValuesType> {
   const form = useContext<FormType.Context<ValuesType>>(FormContext as any);
 
   const value = createMemo<ValuesType[typeof name]>(() => form.values[name]);
   const touched = createMemo<boolean>(() => form.touched[name]);
   const error = createMemo<string>(() =>
-    touched() && form.errors[name] ? form.errors[name] : ""
+    touched() && form.errors[name] ? form.errors[name] : "",
   );
   const required = createMemo<boolean>(() => form.required[name]);
 
