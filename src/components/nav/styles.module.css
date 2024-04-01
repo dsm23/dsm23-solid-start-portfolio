@@ -30,10 +30,10 @@
 @media screen(lg) {
   .container {
     @apply h-full w-64 content-center justify-center;
-    min-height: 100dvh;
     grid-template-areas:
       "profile"
       "sections";
+    min-height: 100dvh;
   }
 
   .icon {
