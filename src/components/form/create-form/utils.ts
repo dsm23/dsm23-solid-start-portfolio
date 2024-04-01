@@ -45,7 +45,7 @@ function getValues(object) {
 function getErrorsFromSchema(
   initialValues: object,
   schema: ObjectSchema<any>,
-  errors = {}
+  errors = {},
 ) {
   for (const key in schema) {
     switch (true) {
@@ -53,7 +53,7 @@ function getErrorsFromSchema(
         errors[key] = getErrorsFromSchema(
           initialValues[key],
           schema[key].fields,
-          { ...errors[key] }
+          { ...errors[key] },
         );
         break;
       }
@@ -65,7 +65,7 @@ function getErrorsFromSchema(
           const innerError = getErrorsFromSchema(
             value,
             schema[key].innerType.fields,
-            { ...errors[key] }
+            { ...errors[key] },
           );
 
           return Object.keys(innerError).length > 0 ? innerError : "";
@@ -107,7 +107,7 @@ function deepEqual(obj1: object, obj2: object, testPrototypes = false) {
     ? isDeepEqual(
         Object.getPrototypeOf(obj1),
         Object.getPrototypeOf(obj2),
-        true
+        true,
       )
     : true;
 
@@ -154,7 +154,7 @@ function set(object, path, value) {
               Math.trunc(Math.abs(path[index + 1])) === +path[index + 1]
                 ? []
                 : {}),
-      object
+      object,
     );
 
   result[path[path.length - 1]] = value;

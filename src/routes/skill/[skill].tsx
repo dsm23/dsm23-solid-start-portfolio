@@ -27,7 +27,7 @@ const Skill = () => {
   const rating = () => skill()?.rating;
 
   return (
-    <Main class="px-6 py-8 w-full">
+    <Main class="w-full px-6 py-8">
       <StyledGoBack class="mb-4" href="/#skills" />
 
       <h1 class="text-4xl text-sky-700">{skillName()}</h1>
@@ -36,7 +36,7 @@ const Skill = () => {
       </div>
 
       <div class="flex">
-        <h2 class="text-sky-600 tracking-widest">PROFICIENCY:</h2>
+        <h2 class="tracking-widest text-sky-600">PROFICIENCY:</h2>
 
         <For each={Array.from({ length: rating() })}>
           {() => <FilledStar class="h-6 w-6" />}

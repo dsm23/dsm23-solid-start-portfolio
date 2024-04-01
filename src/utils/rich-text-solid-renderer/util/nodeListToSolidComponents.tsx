@@ -5,7 +5,7 @@ import { appendKeyToValidElement } from "./appendKeyToValidElement";
 
 export function nodeListToSolidComponents(
   nodes: CommonNode[],
-  options: Options
+  options: Options,
 ): JSX.Element {
   return nodes.map((node: CommonNode, index: number): JSX.Element => {
     return appendKeyToValidElement(nodeToSolidComponent(node, options), index);
@@ -14,7 +14,7 @@ export function nodeListToSolidComponents(
 
 export function nodeToSolidComponent(
   node: CommonNode,
-  options: Options
+  options: Options,
 ): JSX.Element {
   const { renderNode, renderMark, renderText } = options;
   if (helpers.isText(node)) {
@@ -25,12 +25,12 @@ export function nodeToSolidComponent(
         }
         return renderMark[mark.type](value);
       },
-      renderText ? renderText(node.value) : node.value
+      renderText ? renderText(node.value) : node.value,
     );
   } else {
     const children: JSX.Element = nodeListToSolidComponents(
       node.content,
-      options
+      options,
     );
     if (!node.nodeType || !renderNode[node.nodeType]) {
       return <>{children}</>;

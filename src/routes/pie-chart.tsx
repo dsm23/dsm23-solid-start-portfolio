@@ -59,29 +59,10 @@ const PieChart = () => {
   const arcLabel = d3Arc().innerRadius(labelRadius).outerRadius(labelRadius);
 
   return (
-    <Main class="px-6 py-8 w-full">
+    <Main class="w-full px-6 py-8">
       <StyledGoBack class="mb-4" href="/#projects" />
 
-      <h1 class="text-4xl text-sky-600 tracking-widest uppercase">Pie Chart</h1>
-
-      <svg viewBox="0 0 100 100">
-        <g transform="translate(50,50)">
-          <For each={arcs}>
-            {(arc) => (
-              <g
-                stroke={stroke}
-                stroke-width={strokeWidth}
-                stroke-linejoin={strokeLinejoin}
-              >
-                <path d={arc.d} fill={arc.color} />
-
-                {/* <text class='outline' x={arc.centroid[0]} y={arc.centroid[1]}>{arc.label}</text> */}
-                {/* <text x={arc.centroid[0]} y={arc.centroid[1]}>{arc.label}</text> */}
-              </g>
-            )}
-          </For>
-        </g>
-      </svg>
+      <h1 class="text-4xl uppercase tracking-widest text-sky-600">Pie Chart</h1>
     </Main>
   );
 };

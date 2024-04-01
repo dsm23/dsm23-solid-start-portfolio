@@ -4,6 +4,8 @@
     "dev": "solid-start dev",
     "build": "solid-start build",
     "start": "solid-start start",
+    "fmt": "prettier --write .",
+    "fmt.check": "prettier --check .",
     "codegen": "gql-gen -r dotenv/config"
   },
   "type": "module",

@@ -26,7 +26,7 @@ const Skills: Component<Props> = (props) => {
               <SVGLoader
                 class={cx(
                   styles.iconWrapper,
-                  "h-16 w-16 text-gray-900 group-hover:text-blue-700 dark:text-white dark:group-hover:text-blue-400"
+                  "h-16 w-16 text-gray-900 group-hover:text-blue-700 dark:text-white dark:group-hover:text-blue-400",
                 )}
                 src={item.icon!.url as string}
               />

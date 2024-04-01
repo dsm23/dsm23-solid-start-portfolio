@@ -62,13 +62,13 @@ const Layout: Component<Props> = ({ children }) => {
                 class={cx(
                   styles.navLink,
                   "group flex w-full items-center justify-start rounded py-2 uppercase hover:bg-gray-900 hover:text-white focus:outline-none lg:justify-center",
-                  { "bg-blue-700 text-white": label === activeId() }
+                  { "bg-blue-700 text-white": label === activeId() },
                 )}
               >
                 <span
                   class={cx(
                     styles.navSpan,
-                    "px-px py-px group-focus:bg-yellow-500 group-focus:text-gray-900 lg:px-0.5"
+                    "px-px py-px group-focus:bg-yellow-500 group-focus:text-gray-900 lg:px-0.5",
                   )}
                 >
                   {label}
@@ -85,13 +85,13 @@ const Layout: Component<Props> = ({ children }) => {
               href={`/#${label}`}
               class={cx(
                 styles.navLink,
-                "group flex w-full items-center justify-start rounded py-2 uppercase hover:bg-gray-900 hover:text-white focus:outline-none lg:justify-center"
+                "group flex w-full items-center justify-start rounded py-2 uppercase hover:bg-gray-900 hover:text-white focus:outline-none lg:justify-center",
               )}
             >
               <span
                 class={cx(
                   styles.navSpan,
-                  "px-px py-px text-gray-400 group-focus:bg-yellow-500 group-focus:text-gray-900 lg:px-0.5"
+                  "px-px py-px text-gray-400 group-focus:bg-yellow-500 group-focus:text-gray-900 lg:px-0.5",
                 )}
               >
                 {label}

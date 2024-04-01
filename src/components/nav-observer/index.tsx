@@ -29,7 +29,7 @@ export const NavObserverProvider: ParentComponent<{}> = (props) => {
 
   const observerCallback = (
     entries: IntersectionObserverEntry[],
-    observer: IntersectionObserver
+    observer: IntersectionObserver,
   ) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -41,7 +41,9 @@ export const NavObserverProvider: ParentComponent<{}> = (props) => {
   createEffect(() => {
     let observer = new IntersectionObserver(observerCallback, options);
 
-    refs().forEach((ref) => void observer.observe(ref));
+    refs().forEach((ref) => {
+      observer.observe(ref);
+    });
 
     return () => {
       observer.disconnect();

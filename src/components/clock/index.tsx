@@ -7,8 +7,10 @@ const Clock = () => {
   const [time, setTime] = createSignal(new Date());
 
   onMount(() => {
-    const interval = setInterval(() => void setTime(new Date()), 1000);
-    return () => void clearInterval(interval);
+    const interval = setInterval(() => setTime(new Date()), 1000);
+    return () => {
+      clearInterval(interval);
+    };
   });
 
   const hours = () => time().getHours();
@@ -20,12 +22,10 @@ const Clock = () => {
       <circle class={styles.clockFace} r="48" />
 
       <For
-        each={
-          Array.from({ length: 60 }, (_, i) => [i % 5 === 0, i]) as [
-            boolean,
-            number
-          ][]
-        }
+        each={Array.from<unknown, [boolean, number]>({ length: 60 }, (_, i) => [
+          i % 5 === 0,
+          i,
+        ])}
       >
         {([isMajor, radial]) => <Marker isMajor={isMajor} radial={radial} />}
       </For>

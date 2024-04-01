@@ -11,7 +11,7 @@ const Interests: Component<Props> = (props) => {
   return (
     <Section {...others}>
       <h2 class="text-5xl">Interests</h2>
-      <ul class="list-disc list-inside">
+      <ul class="list-inside list-disc">
         <For each={local.interests}>
           {({ interest }) => <li class="ml-4">{interest}</li>}
         </For>

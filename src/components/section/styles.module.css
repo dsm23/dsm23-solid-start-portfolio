@@ -3,23 +3,26 @@
 }
 
 .centering {
-  @apply flex items-center justify-center content-center;
+  @apply flex content-center items-center justify-center;
 }
 
 @supports (min-height: 100dvh) {
-  .section, .centering {
+  .section,
+  .centering {
     min-height: calc(100dvh - 68px);
   }
 
   @media screen(lg) {
-    .section, .centering {
+    .section,
+    .centering {
       min-height: 100vh;
     }
   }
 }
 
 @media print {
-  .section, .centering {
+  .section,
+  .centering {
     min-height: auto;
   }
 }

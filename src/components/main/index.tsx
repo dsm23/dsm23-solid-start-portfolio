@@ -22,7 +22,7 @@ type Props<E extends ElementType> = PlymorphicProps<E> &
 const defaultElement = "main";
 
 const Main: <E extends ElementType = typeof defaultElement>(
-  props: Props<E>
+  props: Props<E>,
 ) => JSX.Element | null = (props) => {
   const [local, others] = splitProps(props, ["as", "class", "ref"]);
 

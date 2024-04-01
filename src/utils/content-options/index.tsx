@@ -5,7 +5,7 @@ import Anchor from "~/components/anchor";
 const options: Options = {
   renderMark: {
     [MARKS.BOLD]: (text) => (
-      <span class="text-gray-900 dark:text-white font-bold">{text}</span>
+      <span class="font-bold text-gray-900 dark:text-white">{text}</span>
     ),
   },
   renderNode: {
@@ -13,7 +13,7 @@ const options: Options = {
       <p class="mt-2 text-gray-900 dark:text-white">{children}</p>
     ),
     [BLOCKS.UL_LIST]: (_, children) => (
-      <ul class="my-2 list-disc list-outside">{children}</ul>
+      <ul class="my-2 list-outside list-disc">{children}</ul>
     ),
     [BLOCKS.LIST_ITEM]: (_, children) => <li class="ml-8">{children}</li>,
     // [BLOCKS.EMBEDDED_ASSET]: (node: any) => (

@@ -21,7 +21,7 @@ const Form: Component<Props> = (props) => {
   });
 
   const handleChange: JSX.EventHandler<HTMLInputElement, InputEvent> = (
-    event
+    event,
   ) => {
     const target = event.currentTarget;
     const value = target.type === "checkbox" ? target.checked : target.value;
@@ -34,7 +34,7 @@ const Form: Component<Props> = (props) => {
   };
 
   const handleBlur: JSX.EventHandler<HTMLInputElement, InputEvent> = (
-    event
+    event,
   ) => {
     const target = event.currentTarget;
     const name = target.name;
@@ -61,7 +61,7 @@ const Form: Component<Props> = (props) => {
           handleChange,
           handleBlur,
           handleSubmit,
-        })
+        }),
   );
 
   return <>{c()}</>;

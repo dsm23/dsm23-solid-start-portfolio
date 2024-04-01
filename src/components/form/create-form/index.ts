@@ -99,7 +99,7 @@ export const createForm = (config) => {
       return Promise.resolve()
         .then(() => validateFunction({ [field]: value }))
         .then((errs) =>
-          util.update(errors, field, !util.isNullish(errs) ? errs[field] : "")
+          util.update(errors, field, !util.isNullish(errs) ? errs[field] : ""),
         )
         .finally(() => {
           setValidating(false);
@@ -159,7 +159,7 @@ export const createForm = (config) => {
                 const updatedErrors = getInitial.errors();
 
                 yupErrors.inner.map((error) =>
-                  util.set(updatedErrors, error.path, error.message)
+                  util.set(updatedErrors, error.path, error.message),
                 );
 
                 errors.set(updatedErrors);
