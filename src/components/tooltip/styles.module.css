@@ -35,32 +35,32 @@
       #0000 61deg
     )
     left / 50% 100% no-repeat;
-
-  pointer-events: none;
-  user-select: none;
-
-  opacity: 0;
-  transform: translateX(var(--_x, 0)) translateY(var(--_y, 0));
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
+  z-index: 1;
 
   position: absolute;
-  z-index: 1;
   inline-size: max-content;
   max-inline-size: 25ch;
-  text-align: start;
-  font-size: 1rem;
-  font-weight: normal;
-  line-height: initial;
-  padding: var(--_p-block) var(--_p-inline);
   margin: 0;
+  padding: var(--_p-block) var(--_p-inline);
+  transform: translateX(var(--_x, 0)) translateY(var(--_y, 0));
   border-radius: 5px;
   background: var(--_bg);
   color: CanvasText;
-  will-change: filter;
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: initial;
+  text-align: start;
   filter: drop-shadow(0 3px 3px hsl(0 0% 0% / var(--_shadow-alpha)))
     drop-shadow(0 12px 12px hsl(0 0% 0% / var(--_shadow-alpha)));
+
+  opacity: 0;
+
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  will-change: filter;
+  user-select: none;
 }
 /* light theme style adjustments */
 @media (prefers-color-scheme: light) {
@@ -90,22 +90,22 @@
 .tooltip::before {
   content: "; Has tooltip: ";
   clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
   position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
 }
 
 /* tooltip shape is a pseudo element so we can cast a shadow */
 .tooltip::after {
-  content: "";
-  background: var(--_bg);
-  position: absolute;
   z-index: -1;
+  position: absolute;
   inset: 0;
+  background: var(--_bg);
+  content: "";
   mask: var(--_tip);
 }
 
@@ -126,8 +126,8 @@
     [data-tip-position="block-start"],
     :not([data-tip-position])
   ) {
-  inset-inline-start: 50%;
   inset-block-end: calc(100% + var(--_p-block) + var(--_triangle-size));
+  inset-inline-start: 50%;
   --_x: calc(50% * var(--isRTL));
 }
 
@@ -156,8 +156,8 @@
 
 /* RIGHT || INLINE END */
 .tooltip:is([data-tip-position="right"], [data-tip-position="inline-end"]) {
-  inset-inline-start: calc(100% + var(--_p-inline) + var(--_triangle-size));
   inset-block-end: 50%;
+  inset-inline-start: calc(100% + var(--_p-inline) + var(--_triangle-size));
   --_y: 50%;
 }
 
@@ -190,8 +190,8 @@
 
 /* BOTTOM || BLOCK END */
 .tooltip:is([data-tip-position="bottom"], [data-tip-position="block-end"]) {
-  inset-inline-start: 50%;
   inset-block-start: calc(100% + var(--_p-block) + var(--_triangle-size));
+  inset-inline-start: 50%;
   --_x: calc(50% * var(--isRTL));
 }
 
@@ -218,8 +218,8 @@
 
 /* LEFT || INLINE START */
 .tooltip:is([data-tip-position="left"], [data-tip-position="inline-start"]) {
-  inset-inline-end: calc(100% + var(--_p-inline) + var(--_triangle-size));
   inset-block-end: 50%;
+  inset-inline-end: calc(100% + var(--_p-inline) + var(--_triangle-size));
   --_y: 50%;
 }
 

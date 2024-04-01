@@ -1,7 +1,7 @@
 .navSpan {
-  font-weight: theme(fontWeight.medium);
-  border-radius: theme(borderRadius.DEFAULT);
   height: theme(height.full);
+  border-radius: theme(borderRadius.DEFAULT);
+  font-weight: theme(fontWeight.medium);
 }
 
 .navLink {
