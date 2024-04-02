@@ -1,12 +1,4 @@
-import {
-  Component,
-  ParentProps,
-  createSignal,
-  For,
-  Match,
-  Switch,
-} from "solid-js";
-import { A, useLocation } from "solid-start";
+import { A, useLocation } from "@solidjs/router";
 import cx from "clsx";
 import Nav from "../nav";
 import { useActiveSectionId } from "../nav-observer";

@@ -1,5 +1,4 @@
-import { Component, JSX, For, splitProps } from "solid-js";
-import { A } from "solid-start";
+import { A } from "@solidjs/router";
 import cx from "clsx";
 import Section from "~/components/section";
 import SVGLoader from "./SVGLoader";

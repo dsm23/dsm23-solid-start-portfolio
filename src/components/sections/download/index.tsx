@@ -1,21 +1,19 @@
-import { Component, JSX, createEffect, Show } from "solid-js";
-import { createRouteAction } from "solid-start";
+import { action, useAction, useSubmission } from "@solidjs/router";
 import cx from "clsx";
 import Section from "~/components/section";
 import { ArrowDownTray, ThreeDots } from "~/components/svgs";
 
 interface Props extends JSX.HTMLAttributes<HTMLElement> {}
 
-const sleep = (ms = 0) => new Promise((resolve) => setTimeout(resolve, ms));
-
-const fetchPDF = async (_: Boolean) => {
+const fetchPDF = action(async (_: boolean) => {
   const response = await fetch("/api/create-pdf");
 
   return await response.blob();
-};
+});
 
 const Download: Component<Props> = (props) => {
-  const [data, download] = createRouteAction(fetchPDF);
+  const download = useAction(fetchPDF);
+  const data = useSubmission(fetchPDF);
 
   createEffect(() => {
     if (data.result instanceof Blob) {

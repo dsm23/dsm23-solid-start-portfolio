@@ -1,14 +1,20 @@
-import { JSX } from "solid-js";
-import {
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
+import type {
   Block,
-  BLOCKS,
   Document,
   Inline,
-  INLINES,
-  MARKS,
   Text,
 } from "@contentful/rich-text-types";
 import { nodeToSolidComponent } from "./util/nodeListToSolidComponents";
+
+const MARKS = {
+  BOLD: "bold",
+  ITALIC: "italic",
+  UNDERLINE: "underline",
+  CODE: "code",
+  SUPERSCRIPT: "superscript",
+  SUBSCRIPT: "subscript",
+} as const;
 
 const defaultNodeRenderers: RenderNode = {
   [BLOCKS.DOCUMENT]: (node, children) => children,

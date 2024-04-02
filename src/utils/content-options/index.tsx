@@ -1,10 +1,13 @@
-import { Options } from "../rich-text-solid-renderer";
-import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types";
+import type { Options } from "../rich-text-solid-renderer";
+import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 import Anchor from "~/components/anchor";
 
 const options: Options = {
   renderMark: {
-    [MARKS.BOLD]: (text) => (
+    // [MARKS.BOLD]: (text) => (
+    //   <span class="font-bold text-gray-900 dark:text-white">{text}</span>
+    // ),
+    bold: (text) => (
       <span class="font-bold text-gray-900 dark:text-white">{text}</span>
     ),
   },

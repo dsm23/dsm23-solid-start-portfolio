@@ -1,5 +1,4 @@
-import { createResource } from "solid-js";
-import { useRouteData } from "solid-start";
+import { cache, createAsync } from "@solidjs/router";
 import {
   Divisor,
   Download,
@@ -13,16 +12,18 @@ import {
 } from "~/components";
 import { getHomePageQuery } from "~/utils/api";
 
-export const routeData = () => {
-  const [dataSet] = createResource(async () => {
-    return await getHomePageQuery();
-  });
+const getPage = cache(async () => {
+  "use server";
 
-  return dataSet;
+  return await getHomePageQuery();
+}, "home");
+
+export const route = {
+  load: async () => await getPage(),
 };
 
 const HomePage = () => {
-  const dataSet = useRouteData<typeof routeData>();
+  const dataSet = createAsync(async () => await getPage());
 
   const person = () => dataSet()?.person;
   const education = () => dataSet()?.education;
