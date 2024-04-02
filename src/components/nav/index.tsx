@@ -5,7 +5,7 @@ import {
   createResource,
   ParentProps,
 } from "solid-js";
-import { A } from "solid-start";
+import { A } from "@solidjs/router";
 // import resolveConfig from "tailwindcss/resolveConfig";
 // import { KeyValuePair } from "tailwindcss/types/config.js";
 // @ts-ignore
@@ -31,6 +31,8 @@ interface Props extends ParentProps {
 
 const Nav: Component<Props> = (props) => {
   const [profilePic] = createResource(async () => {
+    "use server";
+
     return await getProfilePic();
   });
 

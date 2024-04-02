@@ -1,5 +1,4 @@
-import { Component, JSX, For } from "solid-js";
-import { A } from "solid-start";
+import { A } from "@solidjs/router";
 import { Anchor, Section } from "~/components";
 
 import { Help, NavRight } from "~/components/svgs";

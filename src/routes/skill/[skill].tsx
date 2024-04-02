@@ -1,5 +1,6 @@
-import { createResource, For } from "solid-js";
-import { RouteDataArgs, createRouteData, useRouteData } from "solid-start";
+import { For } from "solid-js";
+import { createAsync, cache, useParams } from "@solidjs/router";
+import type { RouteDefinition, Params } from "@solidjs/router";
 import Main from "~/components/main";
 import { EmptyStar, FilledStar } from "~/components/svgs";
 import StyledGoBack from "~/components/styled-go-back";
@@ -7,20 +8,19 @@ import { contentfulOptions } from "~/utils";
 import { getSkillBySlug } from "~/utils/api";
 import { documentToSolidComponents } from "~/utils/rich-text-solid-renderer";
 
-export const routeData = ({ params }: RouteDataArgs) => {
-  // const [skill] = createResource(async () => {
-  //   return await getSkillBySlug(params.skill);
-  // });
+const getSkill = cache(async (params: Params) => {
+  "use server";
 
-  // return skill;
+  return await getSkillBySlug(params.skill);
+}, "skills");
 
-  return createRouteData(async () => {
-    return await getSkillBySlug(params.skill);
-  });
-};
+export const route = {
+  load: async ({ params }) => await getSkill(params),
+} satisfies RouteDefinition;
 
 const Skill = () => {
-  const skill = useRouteData<typeof routeData>();
+  const params = useParams();
+  const skill = createAsync(async () => await getSkill(params));
 
   const skillName = () => skill()?.skillName;
   const content = () => skill()?.content;

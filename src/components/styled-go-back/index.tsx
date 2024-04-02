@@ -1,6 +1,6 @@
 import { Component } from "solid-js";
-import { A } from "solid-start";
-import { AnchorProps } from "@solidjs/router";
+import { A } from "@solidjs/router";
+import type { AnchorProps } from "@solidjs/router";
 import cx from "clsx";
 import { GoBack } from "../svgs";
 
