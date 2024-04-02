@@ -52,12 +52,6 @@ const Download: Component<Props> = (props) => {
         -dNOPAUSE -dQUIET -dBATCH
         -sOutputFile=DavidMurdochCV-postGhostscript.pdf DavidMurdochCV.pdf
       </pre>
-
-      <div class="dark:text-white">pending: {data.pending.toString()}</div>
-
-      <Show when={data.pending}>
-        <div class="dark:text-white">loading...</div>
-      </Show>
     </Section>
   );
 };
