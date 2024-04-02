@@ -9,7 +9,6 @@
     "fmt.check": "prettier --check .",
     "codegen": "gql-gen -r dotenv/config"
   },
-  "type": "module",
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@graphql-codegen/cli": "^2.16.3",
@@ -42,7 +41,7 @@
     "clsx": "^2.0.0",
     "d3-shape": "^3.2.0",
     "geist": "^1.2.0",
-    "puppeteer": "^21.6.0",
+    "puppeteer-core": "^22.6.1",
     "solid-headless": "^0.13.1",
     "solid-js": "^1.8.16",
     "solid-js-form": "^0.1.8",
