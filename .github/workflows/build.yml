@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     env:
-      node-version: 21.7.1
+      node-version: 21.7.2
     steps:
       - uses: actions/checkout@v4
         with:
