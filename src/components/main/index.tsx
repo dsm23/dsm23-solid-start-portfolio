@@ -32,7 +32,7 @@ const Main: <E extends ElementType = typeof defaultElement>(
     <Dynamic
       {...others}
       component={local.as ?? defaultElement}
-      class={cx("mt-20 dark:text-white lg:mt-0", local.class)}
+      class={cx("mt-20 lg:mt-0 dark:text-white", local.class)}
       ref={local.ref}
     />
   );
