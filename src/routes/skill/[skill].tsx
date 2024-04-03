@@ -2,10 +2,11 @@ import { For } from "solid-js";
 import { createAsync, cache, useParams } from "@solidjs/router";
 import type { RouteDefinition, Params } from "@solidjs/router";
 import Main from "~/components/main";
-import { EmptyStar, FilledStar } from "~/components/svgs";
+import EmptyStar from "~/components/svgs/empty-star";
+import FilledStar from "~/components/svgs/filled-star";
 import StyledGoBack from "~/components/styled-go-back";
-import { contentfulOptions } from "~/utils";
 import { getSkillBySlug } from "~/utils/api";
+import contentfulOptions from "~/utils/content-options";
 import { documentToSolidComponents } from "~/utils/rich-text-solid-renderer";
 import type { SkillContent } from "../../../graphql-types";
 

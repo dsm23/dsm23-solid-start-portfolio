@@ -2,7 +2,7 @@ import type { Component } from "solid-js";
 import { A } from "@solidjs/router";
 import type { AnchorProps } from "@solidjs/router";
 import cx from "clsx";
-import { GoBack } from "../svgs";
+import GoBack from "../svgs/go-back";
 
 import styles from "./styles.module.css";
 

@@ -3,7 +3,8 @@ import type { Component, JSX } from "solid-js";
 import { action, useAction, useSubmission } from "@solidjs/router";
 import cx from "clsx";
 import Section from "~/components/section";
-import { ArrowDownTray, ThreeDots } from "~/components/svgs";
+import ArrowDownTray from "~/components/svgs/arrow-down-tray";
+import ThreeDots from "~/components/svgs/three-dots";
 
 interface Props extends JSX.HTMLAttributes<HTMLElement> {}
 

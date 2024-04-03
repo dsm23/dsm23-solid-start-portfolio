@@ -1,4 +1,4 @@
-import { Main } from "~/components";
+import Main from "~/components/main";
 import StyledGoBack from "~/components/styled-go-back";
 
 const MathML = () => (

@@ -1,5 +1,5 @@
 import { For } from "solid-js";
-import { Main } from "~/components";
+import Main from "~/components/main";
 import StyledGoBack from "~/components/styled-go-back";
 
 // interface Props extends PageProps<Queries.FizzBuzzQuery> {}

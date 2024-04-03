@@ -1,6 +1,6 @@
 // import * as Yup from "yup";
 import { createForm } from "@tanstack/solid-form";
-import { Main } from "~/components";
+import Main from "~/components/main";
 import TextField from "~/components/text-field";
 
 // const schema = Yup.object().shape({

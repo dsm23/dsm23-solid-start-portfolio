@@ -2,7 +2,8 @@ import { Suspense } from "solid-js";
 import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
 import { Meta, MetaProvider, Title } from "@solidjs/meta";
-import { Layout, NavObserverProvider } from "./components";
+import Layout from "~/components/layout";
+import { NavObserverProvider } from "~/components/nav-observer";
 
 import "./root.css";
 

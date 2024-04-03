@@ -1,10 +1,11 @@
 import { For } from "solid-js";
 import type { Component, JSX } from "solid-js";
 import { A } from "@solidjs/router";
-import { Anchor, Section } from "~/components";
-
-import { Help, NavRight } from "~/components/svgs";
-import { internal } from "~/utils";
+import Anchor from "~/components/anchor";
+import Section from "~/components/section";
+import Help from "~/components/svgs/help";
+import NavRight from "~/components/svgs/nav-right";
+import internal from "~/utils/internal";
 
 import styles from "./styles.module.css";
 

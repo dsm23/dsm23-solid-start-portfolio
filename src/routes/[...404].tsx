@@ -1,7 +1,7 @@
 import { HttpStatusCode } from "@solidjs/start";
 import { A } from "@solidjs/router";
 import { Title } from "@solidjs/meta";
-import { NoContent } from "~/components/svgs";
+import NoContent from "~/components/svgs/no-content";
 
 export default function NotFound() {
   return (
