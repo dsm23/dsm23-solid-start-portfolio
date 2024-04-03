@@ -1,7 +1,9 @@
-import { ComponentProps, Component, JSX, Ref, splitProps } from "solid-js";
+import { splitProps } from "solid-js";
+import type { ComponentProps, Component, JSX, Ref } from "solid-js";
 import { Dynamic } from "solid-js/web";
 import cx from "clsx";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ElementType<P = any> =
   | {
       [K in keyof JSX.IntrinsicElements]: P extends JSX.IntrinsicElements[K]
@@ -29,7 +31,7 @@ const Main: <E extends ElementType = typeof defaultElement>(
   return (
     <Dynamic
       {...others}
-      component={local.as || defaultElement}
+      component={local.as ?? defaultElement}
       class={cx("mt-20 dark:text-white lg:mt-0", local.class)}
       ref={local.ref}
     />

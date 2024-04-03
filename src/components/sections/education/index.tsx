@@ -1,16 +1,14 @@
-import { Component, For, JSX, splitProps } from "solid-js";
+import { For, splitProps } from "solid-js";
+import type { Component, JSX } from "solid-js";
 import Section from "~/components/section";
 import { contentfulOptions, formatYears } from "~/utils";
 import { documentToSolidComponents } from "~/utils/rich-text-solid-renderer";
+import type { EducationSchool, Maybe } from "../../../../graphql-types";
 
 import styles from "./styles.module.css";
 
-// interface Props extends HTMLAttributes<HTMLElement> {
-//   education: Queries.ContentfulEducationSchool[];
-// }
-
 interface Props extends JSX.HTMLAttributes<HTMLElement> {
-  education: any[];
+  education?: Maybe<EducationSchool[]>;
 }
 
 const Education: Component<Props> = (props) => {
@@ -25,7 +23,10 @@ const Education: Component<Props> = (props) => {
             <h3 class={styles.school}>{schoolName}</h3>
             {description && (
               <div class={styles.description}>
-                {documentToSolidComponents(description.json, contentfulOptions)}
+                {documentToSolidComponents(
+                  description?.json,
+                  contentfulOptions,
+                )}
               </div>
             )}
 

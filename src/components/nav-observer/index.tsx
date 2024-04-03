@@ -1,36 +1,32 @@
 import {
-  Accessor,
-  ParentComponent,
   createContext,
   createSignal,
   useContext,
   createEffect,
 } from "solid-js";
+import type { Accessor, ParentComponent } from "solid-js";
 
 type NavObserverContextType = [Accessor<string>, (ref: HTMLElement) => void];
 
-const noop = (ref: HTMLElement) => {};
+const noop = (_: HTMLElement) => {};
 
 const defaultValue: NavObserverContextType = [() => "", noop];
 
 const NavObserverContext = createContext<NavObserverContextType>(defaultValue);
 
-let options = {
+const options = {
   rootMargin: "0px",
   threshold: 0.25,
 };
 
-export const NavObserverProvider: ParentComponent<{}> = (props) => {
+export const NavObserverProvider: ParentComponent<unknown> = (props) => {
   const [activeId, setActiveId] = createSignal<string>("");
   const [refs, setRef] = createSignal<HTMLElement[]>([]);
 
   const registerRef = (ref: HTMLElement) =>
     setRef((prevRefs) => [...prevRefs, ref]);
 
-  const observerCallback = (
-    entries: IntersectionObserverEntry[],
-    observer: IntersectionObserver,
-  ) => {
+  const observerCallback = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         setActiveId(entry.target.id);
@@ -39,7 +35,7 @@ export const NavObserverProvider: ParentComponent<{}> = (props) => {
   };
 
   createEffect(() => {
-    let observer = new IntersectionObserver(observerCallback, options);
+    const observer = new IntersectionObserver(observerCallback, options);
 
     refs().forEach((ref) => {
       observer.observe(ref);
@@ -63,4 +59,4 @@ export const registerNavObserver = (el: HTMLElement) => {
   registerRef(el);
 };
 
-export let useActiveSectionId = () => useContext(NavObserverContext)[0];
+export const useActiveSectionId = () => useContext(NavObserverContext)[0];

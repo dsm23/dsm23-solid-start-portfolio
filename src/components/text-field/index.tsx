@@ -1,7 +1,7 @@
-import { Component, JSX, splitProps } from "solid-js";
+import { splitProps } from "solid-js";
+import type { Component, JSX } from "solid-js";
 
-interface Props
-  extends Omit<JSX.InputHTMLAttributes<HTMLInputElement>, "value"> {
+interface Props extends JSX.InputHTMLAttributes<HTMLInputElement> {
   label: string;
 }
 

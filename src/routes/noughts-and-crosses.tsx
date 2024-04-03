@@ -1,12 +1,5 @@
-import {
-  Component,
-  JSX,
-  createSignal,
-  For,
-  createEffect,
-  mergeProps,
-  splitProps,
-} from "solid-js";
+import { createSignal, For, createEffect, splitProps } from "solid-js";
+import type { Component, JSX } from "solid-js";
 import cx from "clsx";
 import { Anchor, Main } from "~/components/";
 import { createStore } from "solid-js/store";
@@ -14,7 +7,7 @@ import StyledGoBack from "~/components/styled-go-back";
 
 // import { SEO } from "../components/seo";
 
-type Squares = (null | "X" | "O")[];
+type Squares = Array<null | "X" | "O">;
 
 const Square: Component<JSX.ButtonHTMLAttributes<HTMLButtonElement>> = (
   props,
@@ -156,7 +149,7 @@ function calculateWinner(squares: Squares) {
   return null;
 }
 
-const NoughtsAndCrosses: Component<{}> = () => {
+const NoughtsAndCrosses: Component = () => {
   return (
     <Main class="w-full px-6 py-8">
       <StyledGoBack class="mb-4" href="/#projects" />
