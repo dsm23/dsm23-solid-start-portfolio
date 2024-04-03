@@ -1,4 +1,5 @@
-import { ClockFace, Main } from "~/components";
+import ClockFace from "~/components/clock";
+import Main from "~/components/main";
 import StyledGoBack from "~/components/styled-go-back";
 
 const Clock = () => (

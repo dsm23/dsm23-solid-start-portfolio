@@ -4,7 +4,7 @@ export async function GET() {
   const browser =
     import.meta.env.MODE === "development"
       ? await puppeteer.launch({
-          executablePath: process.env.VITE_CHROME_EXECUTABLE_PATH,
+          executablePath: import.meta.env.VITE_CHROME_EXECUTABLE_PATH,
         })
       : await puppeteer.connect({
           browserWSEndpoint: `wss://chrome.browserless.io?token=${import.meta.env.VITE_BROWSERLESS_TOKEN}`,

@@ -1,15 +1,13 @@
 import { cache, createAsync } from "@solidjs/router";
-import {
-  Divisor,
-  Download,
-  Education,
-  Experience,
-  Home,
-  Interests,
-  Main,
-  Projects,
-  Skills,
-} from "~/components";
+import Divisor from "~/components/divisor";
+import Main from "~/components/main";
+import Download from "~/components/sections/download";
+import Education from "~/components/sections/education";
+import Experience from "~/components/sections/experience";
+import Home from "~/components/sections/home";
+import Interests from "~/components/sections/interests";
+import Projects from "~/components/sections/projects";
+import Skills from "~/components/sections/skills";
 import { getHomePageQuery } from "~/utils/api";
 
 const getPage = cache(async () => {

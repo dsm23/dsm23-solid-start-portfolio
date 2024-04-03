@@ -1,7 +1,8 @@
 import { For, splitProps } from "solid-js";
 import type { Component, JSX } from "solid-js";
 import Section from "~/components/section";
-import { contentfulOptions, formatYears } from "~/utils";
+import contentfulOptions from "~/utils/content-options";
+import formatYears from "~/utils/format-years";
 import { documentToSolidComponents } from "~/utils/rich-text-solid-renderer";
 import type { EducationSchool, Maybe } from "../../../../graphql-types";
 

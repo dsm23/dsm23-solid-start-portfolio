@@ -1,7 +1,7 @@
 // https://codesandbox.io/s/x32155kw4q
 import { createSignal } from "solid-js";
 import type { Accessor } from "solid-js";
-import { easing as timing } from "~/utils";
+import { easing as timing } from "~/utils/ts-easing";
 
 const useTween = (
   initial: number,

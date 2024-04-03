@@ -1,8 +1,8 @@
 import { For } from "solid-js";
-import { Main } from "~/components";
-import StyledGoBack from "~/components/styled-go-back";
 import { pie as d3Pie, arc as d3Arc } from "d3-shape";
 import type { PieArcDatum } from "d3-shape";
+import Main from "~/components/main";
+import StyledGoBack from "~/components/styled-go-back";
 
 const height = 100;
 const width = 100;

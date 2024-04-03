@@ -3,7 +3,9 @@ import type { Component, JSX } from "solid-js";
 import Anchor from "~/components/anchor";
 import Section from "~/components/section";
 import SectionHeader from "~/components/section-header";
-import { ArrowTopRightOnSquare, CodeSandbox, GitHub } from "~/components/svgs";
+import ArrowTopRightOnSquare from "~/components/svgs/arrow-top-right-on-square";
+import CodeSandbox from "~/components/svgs/code-sandbox";
+import GitHub from "~/components/svgs/github";
 import type { Maybe, Person } from "../../../../graphql-types";
 
 interface Props extends JSX.HTMLAttributes<HTMLElement> {

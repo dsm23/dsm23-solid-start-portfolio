@@ -1,11 +1,12 @@
 import { createEffect, createResource, Show } from "solid-js";
 import type { Accessor, Component, ParentProps } from "solid-js";
 import { A } from "@solidjs/router";
-
-import Hamburger from "../hamburger";
-import { useMedia, useTween } from "~/hooks";
-import { clickOutside, easing } from "~/utils";
+import Hamburger from "~/components/hamburger";
+import useMedia from "~/hooks/useMedia";
+import useTween from "~/hooks/useTween";
 import { getProfilePic } from "~/utils/api";
+import clickOutside from "~/utils/click-outside";
+import { easing } from "~/utils/ts-easing";
 
 import styles from "./styles.module.css";
 

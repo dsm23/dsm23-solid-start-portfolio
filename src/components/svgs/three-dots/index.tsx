@@ -1,5 +1,5 @@
 import type { Component, JSX } from "solid-js";
-import { cn } from "~/utils";
+import cn from "~/utils/class-names";
 
 type Props = JSX.SvgSVGAttributes<SVGSVGElement>;
 

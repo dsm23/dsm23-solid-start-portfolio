@@ -1,11 +1,10 @@
 import { createSignal, For, createEffect, splitProps } from "solid-js";
 import type { Component, JSX } from "solid-js";
-import cx from "clsx";
-import { Anchor, Main } from "~/components/";
 import { createStore } from "solid-js/store";
+import cx from "clsx";
+import Anchor from "~/components/anchor";
+import Main from "~/components/main";
 import StyledGoBack from "~/components/styled-go-back";
-
-// import { SEO } from "../components/seo";
 
 type Squares = Array<null | "X" | "O">;
 
