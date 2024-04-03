@@ -1,6 +1,7 @@
-import { JSX } from "solid-js";
-import { helpers, Mark } from "@contentful/rich-text-types";
-import { CommonNode, Options } from "..";
+import type { JSX } from "solid-js";
+import { helpers } from "@contentful/rich-text-types";
+import type { Mark } from "@contentful/rich-text-types";
+import type { CommonNode, Options } from "..";
 import { appendKeyToValidElement } from "./appendKeyToValidElement";
 
 export function nodeListToSolidComponents(

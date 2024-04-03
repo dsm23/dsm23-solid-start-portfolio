@@ -1,4 +1,5 @@
-import { Component, JSX, createEffect, createSignal, onMount } from "solid-js";
+import { createEffect, createSignal, onMount } from "solid-js";
+import type { Component, JSX } from "solid-js";
 
 type Props = JSX.SvgSVGAttributes<SVGSVGElement>;
 
@@ -11,10 +12,7 @@ const Divisor: Component<Props> = (props) => {
 
   const [autoplay, setAutoplay] = createSignal<boolean>(false);
 
-  const callback = (
-    entries: IntersectionObserverEntry[],
-    observer: IntersectionObserver,
-  ) => {
+  const callback = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         setAutoplay(true);
@@ -29,8 +27,10 @@ const Divisor: Component<Props> = (props) => {
     };
 
     const observer = new IntersectionObserver(callback, observerOptions);
+    if (animationContainer instanceof SVGSVGElement) {
+      observer.observe(animationContainer);
+    }
 
-    observer.observe(animationContainer!);
     return () => {
       observer.disconnect();
     };
@@ -111,7 +111,7 @@ const Divisor: Component<Props> = (props) => {
         r="4"
         fill="currentColor"
         class="text-blue-300"
-        visibility={!autoplay ? "hidden" : "visible"}
+        visibility={!autoplay() ? "hidden" : "visible"}
       >
         <animateMotion
           ref={leftBall}
@@ -135,7 +135,7 @@ const Divisor: Component<Props> = (props) => {
         r="4"
         fill="currentColor"
         class="text-sky-500"
-        visibility={!autoplay ? "hidden" : "visible"}
+        visibility={!autoplay() ? "hidden" : "visible"}
       >
         <animateMotion
           ref={rightBall}

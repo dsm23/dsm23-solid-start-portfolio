@@ -1,8 +1,13 @@
-import { Component, JSX, For, splitProps } from "solid-js";
+import { For, splitProps } from "solid-js";
+import type { Component, JSX } from "solid-js";
 import Section from "~/components/section";
+import type {
+  Interests as TypeInterests,
+  Maybe,
+} from "../../../../graphql-types";
 
 interface Props extends JSX.HTMLAttributes<HTMLElement> {
-  interests: any[];
+  interests?: Maybe<TypeInterests[]>;
 }
 
 const Interests: Component<Props> = (props) => {

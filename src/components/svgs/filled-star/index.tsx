@@ -1,4 +1,4 @@
-import { Component, JSX } from "solid-js";
+import type { Component, JSX } from "solid-js";
 import cx from "clsx";
 
 type Props = JSX.SvgSVGAttributes<SVGSVGElement>;

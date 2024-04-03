@@ -1,3 +1,5 @@
+import { createSignal, For, Match, Switch } from "solid-js";
+import type { Component, ParentProps } from "solid-js";
 import { A, useLocation } from "@solidjs/router";
 import cx from "clsx";
 import Nav from "../nav";
@@ -22,12 +24,12 @@ const items = [
   "download",
 ];
 
-const Layout: Component<Props> = ({ children }) => {
+const Layout: Component<Props> = (props) => {
   const location = useLocation();
 
   const activeId = useActiveSectionId();
 
-  let rootPath = `/`;
+  const rootPath = `/`;
 
   const [open, setOpen] = createSignal(false);
 
@@ -102,7 +104,7 @@ const Layout: Component<Props> = ({ children }) => {
           {renderNav}
         </Nav>
       </header>
-      <div class="w-full">{children}</div>
+      <div class="w-full">{props.children}</div>
     </div>
   );
 };

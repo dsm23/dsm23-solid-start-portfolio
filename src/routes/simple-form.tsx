@@ -1,7 +1,7 @@
 // import * as Yup from "yup";
 import { createForm } from "@tanstack/solid-form";
 import { Main } from "~/components";
-import TextField from "~/components/form/text-field";
+import TextField from "~/components/text-field";
 
 // const schema = Yup.object().shape({
 //   firstName: Yup.string()
@@ -25,7 +25,7 @@ const SimpleForm = () => {
       firstName: "",
       lastName: "",
     },
-    onSubmit: async (values) => {
+    onSubmit: (values) => {
       // Do something with form data
       console.log(values);
     },
@@ -50,7 +50,9 @@ const SimpleForm = () => {
                   name={field().name}
                   value={field().state.value}
                   onBlur={field().handleBlur}
-                  onChange={(event) => field().handleChange(event.target.value)}
+                  onChange={(event) => {
+                    field().handleChange(event.target.value);
+                  }}
                 />
               )}
             </form.Field>
@@ -63,7 +65,9 @@ const SimpleForm = () => {
                   name={field().name}
                   value={field().state.value}
                   onBlur={field().handleBlur}
-                  onChange={(event) => field().handleChange(event.target.value)}
+                  onChange={(event) => {
+                    field().handleChange(event.target.value);
+                  }}
                 />
               )}
             </form.Field>

@@ -5,12 +5,15 @@ const MathML = () => (
   <Main class="w-full px-6 py-8">
     <StyledGoBack class="mb-4" href="/#projects" />
 
-    <h1>MathML Core example</h1>
+    <h1 class="text-4xl uppercase tracking-widest text-sky-600">
+      MathML Core example
+    </h1>
     <p>An example of MathML core supported in Chrome from v109+</p>
 
-    <div class="container mx-auto">
-      This mathematical formula with a big summation and the number pi
-      {/* <math display="block" style="border: 1px dotted black;">
+    <p
+      class="container mx-auto"
+      innerHTML={`The infinite sum
+      <math display="block">
         <mrow>
           <munderover>
             <mo>∑</mo>
@@ -32,17 +35,18 @@ const MathML = () => (
             </msup>
           </mfrac>
         </mrow>
-        <mo>=</mo>
+      </math>
+      is equal to the real number
+      <math display="inline">
         <mfrac>
           <msup>
             <mi>π</mi>
             <mn>2</mn>
           </msup>
           <mn>6</mn>
-        </mfrac>
-      </math> */}
-      is easy to prove.
-    </div>
+        </mfrac></math
+      >.`}
+    />
   </Main>
 );
 

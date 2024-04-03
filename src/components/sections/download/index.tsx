@@ -1,3 +1,5 @@
+import { createEffect, Show } from "solid-js";
+import type { Component, JSX } from "solid-js";
 import { action, useAction, useSubmission } from "@solidjs/router";
 import cx from "clsx";
 import Section from "~/components/section";
@@ -5,7 +7,7 @@ import { ArrowDownTray, ThreeDots } from "~/components/svgs";
 
 interface Props extends JSX.HTMLAttributes<HTMLElement> {}
 
-const fetchPDF = action(async (_: boolean) => {
+const fetchPDF = action(async () => {
   const response = await fetch("/api/create-pdf");
 
   return await response.blob();
@@ -17,7 +19,7 @@ const Download: Component<Props> = (props) => {
 
   createEffect(() => {
     if (data.result instanceof Blob) {
-      const url = window.URL.createObjectURL(data.result as Blob);
+      const url = window.URL.createObjectURL(data.result);
 
       const link = document.createElement("a");
       link.download = "DavidMurdochCV.pdf";
@@ -35,10 +37,9 @@ const Download: Component<Props> = (props) => {
     <Section {...props} class={cx("print:hidden", props.class)}>
       <h2 class="text-5xl">Download</h2>
 
-      {/* {props.children} */}
       <button
         class="mt-8 flex items-center gap-x-2 rounded-md border border-transparent bg-sky-700 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-sky-900 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2"
-        onClick={() => download(true)}
+        onClick={download}
         disabled={data.pending}
       >
         <ArrowDownTray class="h-5 w-5" />
@@ -48,7 +49,7 @@ const Download: Component<Props> = (props) => {
         </Show>
       </button>
       <pre class="mt-4 whitespace-pre-wrap break-normal font-mono">
-        gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen
+        gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/screen
         -dNOPAUSE -dQUIET -dBATCH
         -sOutputFile=DavidMurdochCV-postGhostscript.pdf DavidMurdochCV.pdf
       </pre>

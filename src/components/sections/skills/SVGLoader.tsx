@@ -1,4 +1,5 @@
-import { Component, createResource, JSX, splitProps } from "solid-js";
+import { createResource, splitProps } from "solid-js";
+import type { Component, JSX } from "solid-js";
 
 interface Props extends JSX.HTMLAttributes<HTMLDivElement> {
   src: string;

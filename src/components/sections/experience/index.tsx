@@ -1,16 +1,14 @@
-import { Component, For, JSX, splitProps } from "solid-js";
+import { For, splitProps } from "solid-js";
+import type { Component, JSX } from "solid-js";
 import Section from "~/components/section";
 import { contentfulOptions, formatYears } from "~/utils";
 import { documentToSolidComponents } from "~/utils/rich-text-solid-renderer";
+import type { ExperienceCompany, Maybe } from "../../../../graphql-types";
 
 import styles from "./styles.module.css";
 
-// interface Props extends HTMLAttributes<HTMLElement> {
-//   experiences: Queries.ContentfulExperienceCompany[];
-// }
-
 interface Props extends JSX.HTMLAttributes<HTMLElement> {
-  experience: any[];
+  experience?: Maybe<ExperienceCompany[]>;
 }
 
 const Experience: Component<Props> = (props) => {
@@ -25,7 +23,7 @@ const Experience: Component<Props> = (props) => {
             <h3 class={styles.company}>{companyName}</h3>
             <div class={styles.city}>{city}</div>
             <div class={styles.description}>
-              {documentToSolidComponents(description.json, contentfulOptions)}
+              {documentToSolidComponents(description?.json, contentfulOptions)}
             </div>
 
             <div class={styles.dates}>

@@ -7,6 +7,7 @@ import StyledGoBack from "~/components/styled-go-back";
 import { contentfulOptions } from "~/utils";
 import { getSkillBySlug } from "~/utils/api";
 import { documentToSolidComponents } from "~/utils/rich-text-solid-renderer";
+import type { SkillContent } from "../../../graphql-types";
 
 const getSkill = cache(async (params: Params) => {
   "use server";
@@ -22,9 +23,9 @@ const Skill = () => {
   const params = useParams();
   const skill = createAsync(async () => await getSkill(params));
 
-  const skillName = () => skill()?.skillName;
-  const content = () => skill()?.content;
-  const rating = () => skill()?.rating;
+  const skillName = () => skill()?.skillName as string;
+  const content = () => skill()?.content as SkillContent;
+  const rating = () => skill()?.rating as number;
 
   return (
     <Main class="w-full px-6 py-8">

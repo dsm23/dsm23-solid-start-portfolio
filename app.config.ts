@@ -1,4 +1,4 @@
-// import eslint from "@nabla/vite-plugin-eslint";
+import eslint from "@nabla/vite-plugin-eslint";
 import { defineConfig } from "@solidjs/start/config";
 
 export default defineConfig({
@@ -7,7 +7,9 @@ export default defineConfig({
   },
   vite: {
     plugins: [
-      // eslint(),
+      eslint({
+        formatter: "stylish",
+      }),
       // VitePWA({ registerType: "autoUpdate" }),
     ],
   },

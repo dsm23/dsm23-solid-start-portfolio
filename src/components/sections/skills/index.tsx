@@ -1,13 +1,16 @@
+import { For, splitProps } from "solid-js";
+import type { Component, JSX } from "solid-js";
 import { A } from "@solidjs/router";
 import cx from "clsx";
 import Section from "~/components/section";
 import SVGLoader from "./SVGLoader";
 import Tooltip from "~/components/tooltip";
+import type { Skill } from "../../../../graphql-types";
 
 import styles from "./styles.module.css";
 
 interface Props extends JSX.HTMLAttributes<HTMLElement> {
-  skills: any[];
+  skills: Skill[];
 }
 
 const Skills: Component<Props> = (props) => {

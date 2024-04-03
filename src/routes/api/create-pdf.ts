@@ -1,8 +1,6 @@
 import puppeteer from "puppeteer-core";
 
 export async function GET() {
-  console.log(import.meta.env.MODE, "fo");
-
   const browser =
     import.meta.env.MODE === "development"
       ? await puppeteer.launch({

@@ -1,3 +1,5 @@
+import { For } from "solid-js";
+import type { Component, JSX } from "solid-js";
 import { A } from "@solidjs/router";
 import { Anchor, Section } from "~/components";
 

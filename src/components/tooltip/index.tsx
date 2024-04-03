@@ -1,25 +1,19 @@
-import { Component, JSX } from "solid-js";
+import type { Component, JSX } from "solid-js";
 import cx from "clsx";
 
 import styles from "./styles.module.css";
 
 type Props = JSX.HTMLAttributes<HTMLDivElement>;
 
-const Tooltip: Component<Props> = ({
-  children,
-  class: className,
-  ref,
-  ...props
-}) => (
+const Tooltip: Component<Props> = (props) => (
   <div
     data-tip-position="top"
     {...props}
-    inert="true"
+    inert={true}
     role="tooltip"
-    className={cx(styles.tooltip, className)}
-    ref={ref}
+    class={cx(styles.tooltip, props.class)}
   >
-    {children}
+    {props.children}
   </div>
 );
 

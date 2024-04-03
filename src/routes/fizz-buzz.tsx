@@ -32,7 +32,7 @@ const FizzBuzz = () => {
       <h1 class="text-4xl uppercase tracking-widest text-sky-600">FizzBuzz</h1>
 
       <div class="flex justify-center">
-        <pre>
+        <pre class="whitespace-pre-wrap break-normal font-mono">
           {`
             switch (true) {
               case num % 3 === 0 && num % 5 === 0: {

@@ -1,15 +1,13 @@
-import { Component, JSX, splitProps } from "solid-js";
+import { splitProps } from "solid-js";
+import type { Component, JSX } from "solid-js";
 import Anchor from "~/components/anchor";
 import Section from "~/components/section";
 import SectionHeader from "~/components/section-header";
 import { ArrowTopRightOnSquare, CodeSandbox, GitHub } from "~/components/svgs";
-
-// interface Props extends HTMLAttributes<HTMLElement> {
-//   author: Queries.ContentfulPerson;
-// }
+import type { Maybe, Person } from "../../../../graphql-types";
 
 interface Props extends JSX.HTMLAttributes<HTMLElement> {
-  author: any;
+  author?: Maybe<Person>;
 }
 
 const Home: Component<Props> = (props) => {
