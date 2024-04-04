@@ -1,28 +1,33 @@
 .container {
-  @apply mt-6;
+  margin-top: theme(margin.6);
 }
 
 .city {
-  @apply ml-2 mt-px;
   grid-area: city;
+  margin-top: theme(margin.px);
+  margin-left: theme(margin.2);
 }
 
 .school {
-  @apply mt-4 text-3xl;
   grid-area: school;
+  margin-top: theme(margin.4);
+  font-size: theme(fontSize.3xl);
 }
 
 .dates {
-  @apply mt-2 font-semibold text-sky-900 dark:text-sky-300;
+  --tw-text-opacity: 1;
   grid-area: dates;
+  margin-top: theme(margin.2);
+  font-weight: theme(fontWeight.semibold);
 }
 
 .description {
-  @apply mt-4 text-gray-900 dark:text-white;
+  --tw-text-opacity: 1;
   grid-area: description;
+  margin-top: theme(margin.4);
 }
 
-@media screen(lg) {
+@screen lg {
   .container {
     display: grid;
     grid-template-columns: 1fr max-content;
@@ -32,6 +37,6 @@
   }
 
   .dates {
-    @apply mt-0;
+    margin-top: 0;
   }
 }

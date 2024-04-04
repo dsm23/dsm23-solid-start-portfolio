@@ -1,6 +1,7 @@
 .imgContainer {
-  @apply relative isolation-auto;
+  position: relative;
   aspect-ratio: 5 / 6;
+  isolation: auto;
 }
 
 @media print {

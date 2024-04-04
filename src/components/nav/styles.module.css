@@ -1,16 +1,26 @@
 .container {
-  @apply sticky top-0 isolate z-10 grid w-full items-center justify-between bg-gradient-to-r from-sky-700 via-sky-800 to-sky-900 p-3;
+  @apply top-0 z-10 bg-gradient-to-r from-sky-700 via-sky-800 to-sky-900;
+  display: grid;
+  position: sticky;
+
   grid-template-areas:
     "profile icon"
     "sections sections";
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: theme(padding.3);
+  isolation: isolate;
 }
 
 .icon {
   grid-area: icon;
+  justify-self: end;
 }
 
 .profile {
   grid-area: profile;
+  justify-self: start;
 }
 
 .sections {
@@ -29,10 +39,13 @@
 
 @media screen(lg) {
   .container {
-    @apply h-full w-64 content-center justify-center;
     grid-template-areas:
       "profile"
       "sections";
+    align-content: center;
+    justify-content: center;
+    width: theme(width.64);
+    height: 100%;
     min-height: 100dvh;
   }
 
