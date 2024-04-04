@@ -1,6 +1,7 @@
 import { For, splitProps } from "solid-js";
 import type { Component, JSX } from "solid-js";
 import Section from "~/components/section";
+import cn from "~/utils/class-names";
 import contentfulOptions from "~/utils/content-options";
 import formatYears from "~/utils/format-years";
 import { documentToSolidComponents } from "~/utils/rich-text-solid-renderer";
@@ -31,7 +32,7 @@ const Education: Component<Props> = (props) => {
               </div>
             )}
 
-            <div class={styles.dates}>
+            <div class={cn(styles.dates, "text-sky-900 dark:text-sky-300")}>
               {formatYears(startDate as string, endDate as string)}
             </div>
           </div>

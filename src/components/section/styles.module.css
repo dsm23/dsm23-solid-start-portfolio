@@ -1,9 +1,12 @@
 .section {
-  @apply w-full;
+  width: 100%;
 }
 
 .centering {
-  @apply flex content-center items-center justify-center;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 @supports (min-height: 100dvh) {
