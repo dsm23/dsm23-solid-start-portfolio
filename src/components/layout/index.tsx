@@ -62,7 +62,7 @@ const Layout: Component<Props> = (props) => {
                 <span
                   class={cx(
                     styles.navSpan,
-                    "px-px py-px group-focus:bg-yellow-500 group-focus:text-gray-900 lg:px-0.5",
+                    "py-px px-px group-focus:bg-yellow-500 group-focus:text-gray-900 lg:px-0.5",
                   )}
                 >
                   {label}
@@ -85,7 +85,7 @@ const Layout: Component<Props> = (props) => {
               <span
                 class={cx(
                   styles.navSpan,
-                  "px-px py-px text-gray-400 group-focus:bg-yellow-500 group-focus:text-gray-900 lg:px-0.5",
+                  "py-px px-px text-gray-400 group-focus:bg-yellow-500 group-focus:text-gray-900 lg:px-0.5",
                 )}
               >
                 {label}

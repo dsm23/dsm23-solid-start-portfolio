@@ -26,7 +26,7 @@ const FizzBuzz = () => {
   });
 
   return (
-    <Main class="w-full px-6 py-8">
+    <Main class="w-full py-8 px-6">
       <StyledGoBack class="mb-4" href="/#projects" />
 
       <h1 class="text-4xl uppercase tracking-widest text-sky-600">FizzBuzz</h1>
@@ -54,7 +54,7 @@ const FizzBuzz = () => {
       <ul role="list" class="space-y-3">
         <For each={listItems}>
           {(num) => (
-            <li class="elevation overflow-hidden rounded-md bg-white px-6 py-4 text-center text-gray-900">
+            <li class="elevation overflow-hidden rounded-md bg-white py-4 px-6 text-center text-gray-900">
               {num}
             </li>
           )}

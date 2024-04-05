@@ -19,7 +19,7 @@ const Section: Component<Props> = (props) => {
       use:registerNavObserver
     >
       <div class={styles.centering}>
-        <div class="min-w-full flex-grow-0 px-4 py-8 lg:flex-grow lg:px-32 lg:py-64">
+        <div class="flex-grow-0 lg:flex-grow min-w-full py-8 px-4 lg:py-64 lg:px-32">
           {local.children}
         </div>
       </div>

@@ -1,7 +1,8 @@
 .container {
-  @apply top-0 z-10 bg-gradient-to-r from-sky-700 via-sky-800 to-sky-900;
   display: grid;
+  z-index: 10;
   position: sticky;
+  top: 0;
 
   grid-template-areas:
     "profile icon"
@@ -9,7 +10,14 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: theme(padding.3);
+  padding: var(--spacing-3);
+  background-image: linear-gradient(
+    to right,
+    var(--color-sky-700),
+    var(--color-sky-800),
+    var(--color-sky-900)
+  );
+
   isolation: isolate;
 }
 
@@ -27,7 +35,8 @@
   grid-area: sections;
 }
 
-@media screen(md) {
+/* @screen md { */
+@media (width >= 768px) {
   .container {
     grid-template-areas: "profile sections";
   }
@@ -37,14 +46,15 @@
   }
 }
 
-@media screen(lg) {
+/* @screen lg { */
+@media (width >= 1024px) {
   .container {
     grid-template-areas:
       "profile"
       "sections";
     align-content: center;
     justify-content: center;
-    width: theme(width.64);
+    width: var(--width-3xs);
     height: 100%;
     min-height: 100dvh;
   }

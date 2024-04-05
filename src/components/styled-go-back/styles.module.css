@@ -1,3 +1,25 @@
 .anchor {
-  @apply flex transform items-center rounded-full bg-gray-100 p-3 text-sky-700 outline-none transition duration-500 ease-in-out hover:scale-125 hover:bg-blue-900 hover:text-white focus:outline-2 focus:outline-yellow-500;
+  display: flex;
+  align-items: center;
+  width: min-content;
+  padding: var(--spacing-3);
+  border-radius: 9999px;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  background-color: var(--color-gray-100);
+  color: var(--color-sky-700);
+  transition-duration: 500ms;
+  transition-property: transform, color, background-color;
+  transition-timing-function: var(--transition-timing-function-in-out);
+}
+
+.anchor:hover {
+  transform: scale(1.25);
+  background-color: var(--color-blue-900);
+  color: var(--color-white);
+}
+
+.anchor:focus {
+  outline-color: var(--color-yellow-500);
+  outline-width: 2px;
 }
