@@ -1,33 +1,32 @@
 .container {
-  margin-top: theme(margin.6);
+  margin-top: var(--spacing-6);
 }
 
 .city {
   grid-area: city;
-  margin-top: theme(margin.px);
-  margin-left: theme(margin.2);
+  margin-top: var(--spacing-px);
+  margin-left: var(--spacing-2);
 }
 
 .company {
   grid-area: company;
-  margin-top: theme(margin.4);
-  font-size: theme(fontSize.3xl);
+  margin-top: var(--spacing-4);
+  font-size: var(--font-size-3xl);
 }
 
 .dates {
-  --tw-text-opacity: 1;
   grid-area: dates;
-  margin-top: theme(margin.2);
-  font-weight: theme(fontWeight.semibold);
+  margin-top: var(--spacing-2);
+  font-weight: 600;
 }
 
 .description {
-  --tw-text-opacity: 1;
   grid-area: description;
-  margin-top: theme(margin.4);
+  margin-top: var(--spacing-4);
 }
 
-@screen lg {
+/* @screen lg { */
+@media (width >= 1024px) {
   .container {
     display: grid;
     grid-template-columns: 1fr max-content;

@@ -15,7 +15,8 @@
     min-height: calc(100dvh - 68px);
   }
 
-  @media screen(lg) {
+  /* @screen lg { */
+  @media (width >= 1024px) {
     .section,
     .centering {
       min-height: 100vh;

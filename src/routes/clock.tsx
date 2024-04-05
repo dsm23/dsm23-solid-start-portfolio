@@ -3,7 +3,7 @@ import Main from "~/components/main";
 import StyledGoBack from "~/components/styled-go-back";
 
 const Clock = () => (
-  <Main class="w-full px-6 py-8">
+  <Main class="w-full py-8 px-6">
     <StyledGoBack class="mb-4" href="/#projects" />
 
     <h1>Clock</h1>

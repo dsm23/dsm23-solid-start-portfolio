@@ -55,7 +55,7 @@ const Nav: Component<Props> = (props) => {
     >
       <A
         href="/#home"
-        class="inline-flex items-center border-2 border-transparent shadow-sm outline-none focus:border-yellow-500 lg:mb-4 lg:mr-0 lg:rounded-full lg:border-8 lg:border-sky-700"
+        class="inline-flex items-center border-2 border-transparent shadow-sm outline-none focus:border-yellow-500 lg:mr-0 lg:mb-4 lg:rounded-full lg:border-8 lg:border-sky-700"
       >
         <Show when={profilePic()}>
           <img

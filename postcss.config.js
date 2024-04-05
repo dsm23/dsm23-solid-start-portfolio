@@ -2,8 +2,7 @@
 
 export default {
   plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
+    "@tailwindcss/postcss": {},
     "postcss-url": {
       url: "copy",
       // basePath: path.resolve("node_modules/geist/dist/fonts/"),
