@@ -1,14 +1,12 @@
-import { createEffect, createResource, Show } from "solid-js";
+import { createResource, Show } from "solid-js";
 import type { Accessor, Component, ParentProps } from "solid-js";
 import { A } from "@solidjs/router";
 import Hamburger from "~/components/hamburger";
-import useMedia from "~/hooks/useMedia";
-import useTween from "~/hooks/useTween";
 import { getProfilePic } from "~/utils/api";
 import clickOutside from "~/utils/click-outside";
-import { easing } from "~/utils/ts-easing";
 
 import styles from "./styles.module.css";
+import { Transition } from "terracotta";
 
 0 && clickOutside;
 
@@ -24,26 +22,6 @@ const Nav: Component<Props> = (props) => {
     "use server";
 
     return await getProfilePic();
-  });
-
-  const [height, setHeight] = useTween(0, {
-    easing: easing.inOutCirc,
-    duration: 400,
-  });
-
-  let mobileContainerRef: HTMLDivElement | undefined;
-  let mobileHeightRef: HTMLDivElement | undefined;
-
-  const isMobile = useMedia(`(max-width: 768px)`);
-
-  createEffect(() => {
-    if (isMobile()) {
-      if (props.open() && mobileHeightRef) {
-        setHeight(mobileHeightRef?.offsetHeight);
-      } else {
-        setHeight(0);
-      }
-    }
   });
 
   return (
@@ -88,17 +66,21 @@ const Nav: Component<Props> = (props) => {
       </div>
 
       <nav aria-label="Primary" class={styles.sections}>
-        <div
-          class="h-0 overflow-hidden md:contents"
-          ref={mobileContainerRef}
-          style={{
-            height: `${height()}px`,
-          }}
+        <Transition
+          show={props.open()}
+          class="grid md:hidden"
+          enter="transition-[grid-template-rows] motion-reduce:transition-none duration-150"
+          enterFrom="grid-rows-[0fr]"
+          enterTo="grid-rows-[1fr]"
+          leave="transition-[grid-template-rows] motion-reduce:transition-none duration-150"
+          leaveFrom="grid-rows-[1fr]"
+          leaveTo="grid-rows-[0fr]"
         >
-          <div class="pt-2 md:contents" ref={mobileHeightRef}>
-            {props.children}
+          <div id="primary-navigation" class="overflow-hidden">
+            <div class="mt-2">{props.children}</div>
           </div>
-        </div>
+        </Transition>
+        <div class="hidden md:block">{props.children}</div>
       </nav>
     </div>
   );
