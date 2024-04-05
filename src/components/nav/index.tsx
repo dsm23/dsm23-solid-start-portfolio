@@ -58,11 +58,14 @@ const Nav: Component<Props> = (props) => {
         class="inline-flex items-center border-2 border-transparent shadow-sm outline-none focus:border-yellow-500 lg:mr-0 lg:mb-4 lg:rounded-full lg:border-8 lg:border-sky-700"
       >
         <Show when={profilePic()}>
-          <img
-            src={profilePic()?.image?.url as string}
-            class="aspect-square w-10 rounded-full object-cover lg:w-48"
-            alt={profilePic()?.image?.description as string}
-          />
+          <picture>
+            <source srcset={profilePic()?.image?.srcset as string} />
+            <img
+              src={profilePic()?.image?.src as string}
+              class="aspect-square w-10 rounded-full object-cover lg:w-48"
+              alt={profilePic()?.image?.description as string}
+            />
+          </picture>
         </Show>
 
         <span class="ml-4 hidden text-xl font-bold tracking-wide text-white md:inline lg:hidden print:inline">
