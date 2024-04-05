@@ -1,7 +1,8 @@
-import { createEffect, Show } from "solid-js";
+import { createEffect } from "solid-js";
 import type { Component, JSX } from "solid-js";
 import { action, useAction, useSubmission } from "@solidjs/router";
 import cx from "clsx";
+import { Transition } from "terracotta";
 import Section from "~/components/section";
 import ArrowDownTray from "~/components/svgs/arrow-down-tray";
 import ThreeDots from "~/components/svgs/three-dots";
@@ -45,9 +46,20 @@ const Download: Component<Props> = (props) => {
       >
         <ArrowDownTray class="h-5 w-5" />
         Download this page as .pdf
-        <Show when={data.pending}>
-          <ThreeDots />
-        </Show>
+        <Transition
+          show={data.pending}
+          class="grid"
+          enter="transition-[grid-template-columns] motion-reduce:transition-none duration-150"
+          enterFrom="grid-cols-[0fr]"
+          enterTo="grid-cols-[1fr]"
+          leave="transition-[grid-template-columns] motion-reduce:transition-none duration-150"
+          leaveFrom="grid-cols-[1fr]"
+          leaveTo="grid-cols-[0fr]"
+        >
+          <div class="overflow-hidden">
+            <ThreeDots class="h-5 w-5" />
+          </div>
+        </Transition>
       </button>
       <pre class="mt-4 whitespace-pre-wrap break-normal font-mono">
         gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.5 -dPDFSETTINGS=/screen

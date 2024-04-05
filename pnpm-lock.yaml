@@ -44,6 +44,9 @@ dependencies:
   tailwind-merge:
     specifier: ^2.2.2
     version: 2.2.2
+  terracotta:
+    specifier: ^1.0.5
+    version: 1.0.5(solid-js@1.8.16)
   yup:
     specifier: ^0.32.11
     version: 0.32.11
